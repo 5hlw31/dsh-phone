@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 简洁的 "D" 字标（DeepSeek Harness 首字母），蓝底黄字 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFD54F"
+        android:pathData="M38,30 h20 a14,14 0 0 1 0,28 h-8 v20 h-12 z M50,42 h8 a2,2 0 0 0 0,-4 h-8 z" />
+</vector>

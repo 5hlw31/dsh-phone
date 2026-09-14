@@ -1,0 +1,27 @@
+# DeepSeek Harness Web UI — systemd 单元
+#
+# 由 setup.sh 用 sed 替换 <SERVER_HOST> / <PORT> / <LOCAL_PORT> 后写入
+# /etc/systemd/system/dsh-web.service
+#
+# 关键设计：--host 127.0.0.1 —— dsh 只监听本机，公网访问一律经 nginx 反代。
+# 这样即使 nginx 配置出错，dsh 也不会直接暴露在公网。
+
+[Unit]
+Description=DeepSeek Harness Web UI
+After=network.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/dsh/env
+
+# ⚠️ 路径按实际安装位置调整（which dsh 查真实路径）
+ExecStart=/usr/local/node-v22.20.0-linux-x64/bin/dsh web \
+    --host 127.0.0.1 \
+    --port <LOCAL_PORT> \
+    --trusted-host <SERVER_HOST>:<PORT>
+
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

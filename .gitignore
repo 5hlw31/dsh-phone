@@ -1,0 +1,30 @@
+# ── 密钥：绝不提交 ──
+# APK 签名私钥；build.bat 在缺失时会自动重新生成
+*.keystore
+*.jks
+
+# 服务端密钥与凭据
+.env
+*.env
+!*.env.example
+htpasswd*
+
+# ── 构建产物 ──
+app/out/
+out/
+*.apk
+*.idsig
+*.class
+*.dex
+
+# ── 日志 ──
+*.log
+
+# ── 依赖 ──
+node_modules/
+
+# ── IDE / OS ──
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
